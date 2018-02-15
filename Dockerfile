@@ -10,6 +10,9 @@ RUN apt-get update && \
 
 
 COPY docker-entrypoint.sh /
+RUN chmod 555 /docker-entrypoint.sh
+
+RUN chmod 664 /etc/passwd /etc/group
 
 ENTRYPOINT ["dumb-init", "/docker-entrypoint.sh"]
 CMD ["foreground" ]
