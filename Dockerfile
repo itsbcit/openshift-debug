@@ -19,5 +19,9 @@ CMD ["foreground" ]
 
 COPY Dockerfile /
 
+RUN mkdir /cache /data && \
+    chown 0:0 /cache /data && \
+    chmod 775 /cache /data
+
 VOLUME /data
 VOLUME /cache
