@@ -7,5 +7,4 @@ if ! whoami &> /dev/null; then
   fi
 fi
 
-#exec /opt/puppetlabs/bin/puppetserver "$@"
 exec sleep 3600
