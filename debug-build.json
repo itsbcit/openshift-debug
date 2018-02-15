@@ -1,0 +1,56 @@
+{
+    "kind": "BuildConfig",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "debug-build"
+    },
+    "spec": {
+        "triggers": [],
+        "runPolicy": "Serial",
+        "source": {
+            "type": "Git",
+            "git": {
+                "uri": "https://github.com/jweisner/openshift-debug.git"
+            }
+        },
+        "strategy": {
+            "type": "Docker",
+            "dockerStrategy": {
+                "from": {
+                    "kind": "DockerImage",
+                    "name": "ubuntu:16.04"
+                }
+            }
+        },
+        "output": {
+            "to": {
+                "kind": "ImageStreamTag",
+                "name": "debug:latest"
+            }
+        },
+        "resources": {},
+        "postCommit": {},
+        "nodeSelector": null
+    }
+}
+{
+    "kind": "ImageStream",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "debug",
+        "namespace": "puppet",
+        "selfLink": "/apis/image.openshift.io/v1/namespaces/puppet/imagestreams/debug",
+        "uid": "3d67c25d-127d-11e8-92c8-005056a8d0ca",
+        "resourceVersion": "3361150",
+        "generation": 1,
+        "creationTimestamp": "2018-02-15T18:22:54Z"
+    },
+    "spec": {
+        "lookupPolicy": {
+            "local": false
+        }
+    },
+    "status": {
+        "dockerImageRepository": "docker-registry.default.svc:5000/puppet/debug"
+    }
+}
