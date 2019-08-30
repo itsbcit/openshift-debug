@@ -1,6 +1,5 @@
 FROM bcit/alpine:3.10
-LABEL maintainer="jesse@weisner.ca"
-LABEL build_id="1567135292"
+<%= snippet('labels', binding) -%>
 
 RUN apk add --no-cache \
         perl \
